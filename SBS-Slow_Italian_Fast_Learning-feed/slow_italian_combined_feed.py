@@ -23,7 +23,7 @@ DELAY_SECONDS = 2          # polite delay between SBS page requests
 MAX_EPISODES  = 20         # set to None to process all episodes in the feed
 USER_AGENT    = (
     "Mozilla/5.0 (compatible; PersonalRSSBuilder/1.0; "
-https://github.com/your-username/slow-italian-feed)))))))"
+https://github.com/your-username/slow-italian-feed)"
 )
 # ──────────────────────────────────────────────────────────────────────────────
 
