@@ -1,0 +1,23 @@
+name: Update Slow Italian RSS Feed
+
+on:
+  schedule:
+    - cron: '0 10 * * 1,4'   # every Thursday at 10:00 UTC
+  workflow_dispatch:
+
+jobs:
+  update-feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r /SBS-Slow_Italian_Fast_Learning-feed/requirements.txt
+      - run: python /SBS-Slow_Italian_Fast_Learning-feed/slow_italian_combined_feed.py
+      - run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add slow_italian_combined.xml
+          git diff --cached --quiet || git commit -m "chore: update RSS feed $(date -u +'%Y-%m-%d')"
+          git push
