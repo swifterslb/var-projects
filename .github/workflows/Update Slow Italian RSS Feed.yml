@@ -13,8 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install -r /SBS-Slow_Italian_Fast_Learning-feed/requirements.txt
-      - run: python /SBS-Slow_Italian_Fast_Learning-feed/slow_italian_combined_feed.py
+      - run: pip install -r SBS-Slow_Italian_Fast_Learning-feed/requirements.txt
+      - run: python SBS-Slow_Italian_Fast_Learning-feed/slow_italian_combined_feed.py
       - run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
